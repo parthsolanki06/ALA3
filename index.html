@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            background: #262626;
+            color: #ffffff;
+            padding: 10px 20px;
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #ffd700;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #ffd700;
+            margin: 0;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        header nav ul li {
+            margin: 0 10px;
+        }
+
+        header nav ul li a {
+            color: #f3f3f3;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Hamburger Icon Styling */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #f3f3f3;
+        }
+
+        /* Products Section Styling */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #333333;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: calc(33.33% - 40px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        button.add-to-cart {
+            background-color: #ffd700;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        button.add-to-cart:hover {
+            background-color: #e6c200;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #262626;
+            color: #f3f3f3;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 200px;
+                padding: 20px;
+            }
+
+            header nav ul.show {
+                display: flex;
+            }
+
+            .product {
+                width: calc(100% - 40px);
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .logo-title {
+                justify-content: center;
+            }
+
+            header h1 {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title">
+            <div class="logo">
+                <img src="parth.jpg" alt="Logo" width="50" height="50">
+            </div>
+            <h1>ℙ𝔸ℝ𝕋ℍ 𝔼-ℂ𝕆𝕄𝕄𝔼ℝℂ𝔼</h1>
+        </div>
+        <nav>
+            <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="product" data-id="1">
+                <img src="car.jpg" alt="Product 1">
+                <h2>Car</h2>
+                <p>$1000.00</p>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="product" data-id="2">
+                <img src="camera.jpg" alt="Product 2">
+                <h2>Cemera</h2>
+                <p>$100.00</p>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+            <div class="product" data-id="3">
+                <img src="phone.jpg" alt="Product 3">
+                <h2>Phone</h2>
+                <p>$150.00</p>
+                <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>We offer 24/7 customer support and reliable services for all your product needs.</p>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a dedicated e-commerce platform, providing top-notch products and support for all your needs.</p>
+        </section>
+        <p>&copy; 2024 P-ecommerce Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+        });
+
+        function addToCart(event) {
+            const productElement = event.target.closest('.product');
+            const productId = productElement.dataset.id;
+            const productName = productElement.querySelector('h2').innerText;
+            const productPrice = productElement.querySelector('p').innerText;
+
+            const product = {
+                id: productId,
+                name: productName,
+                price: productPrice
+            };
+
+            cart.push(product);
+            alert(`${productName} added to cart!`);
+        }
+
+        function toggleMenu() {
+            const menu = document.querySelector('header nav ul');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
